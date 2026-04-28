@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coveo Headless Search Agent Demo</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: #111;
+      }
+
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 24px 16px;
+      }
+
+      input,
+      button {
+        font: inherit;
+      }
+
+      h1,
+      h2,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        margin-bottom: 12px;
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      form {
+        margin: 0 0 12px;
+      }
+
+      .row {
+        display: flex;
+        gap: 8px;
+        align-items: stretch;
+        flex-wrap: wrap;
+      }
+
+      input {
+        flex: 1 1 280px;
+        min-width: 0;
+        padding: 8px 10px;
+      }
+
+      button {
+        padding: 8px 12px;
+      }
+
+      .status {
+        margin-bottom: 12px;
+      }
+
+      .block {
+        margin-top: 16px;
+      }
+
+      .answer-box {
+        max-height: 220px;
+        overflow: auto;
+        padding: 12px;
+        border: 1px solid #d0d0d0;
+        border-radius: 4px;
+        background: #fafafa;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+
+      @media (max-width: 640px) {
+        main {
+          padding: 16px 12px;
+        }
+
+        .row {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Coveo Headless Search Agent Demo</h1>
+
+      <form id="query-form">
+        <div class="row">
+          <input
+            id="query-input"
+            type="search"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="Type a query"
+            aria-label="Search query"
+          />
+          <button id="submit-button" type="submit">Submit</button>
+        </div>
+      </form>
+
+      <p id="status-text" class="status">Ready.</p>
+
+      <section class="block" aria-label="Generated answer">
+        <h2>Generated answer</h2>
+        <pre id="answer-text" class="answer-box">No answer yet.</pre>
+      </section>
+
+      <form id="followup-form">
+        <div class="row">
+          <input
+            id="followup-input"
+            type="search"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="Type a follow-up question"
+            aria-label="Follow-up question"
+          />
+          <button id="followup-button" type="submit">Ask follow-up</button>
+        </div>
+      </form>
+
+      <section class="block" aria-label="Follow-up answer">
+        <h2>Follow-up answer</h2>
+        <pre id="followup-answer-text" class="answer-box">No follow-up answer yet.</pre>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
